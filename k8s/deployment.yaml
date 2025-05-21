@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-mistral
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-mistral
+  template:
+    metadata:
+      labels:
+        app: fastapi-mistral
+    spec:
+      containers:
+      - name: fastapi-mistral
+        image: dhanush789245/fastapi-mistralai-app:v1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: HF_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: hf-secret
+              key: HF_TOKEN
