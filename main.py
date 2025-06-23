@@ -24,3 +24,7 @@ def generate_text(prompt: Prompt):
         return response.json()
     except requests.exceptions.RequestException as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/test")
+def read_root():
+    return {"message": "Hello, world!"}
