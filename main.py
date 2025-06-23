@@ -27,4 +27,4 @@ def generate_text(prompt: Prompt):
 
 @app.get("/test")
 def read_root():
-    return {"message": "Build by dhanush"}
+    return {"message": "CI/CD pipeline success"}
