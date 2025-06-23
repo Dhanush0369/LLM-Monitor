@@ -34,7 +34,7 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
         git clone https://x-access-token:${{ secrets.GITOPS_REPO_TOKEN }}@github.com/Dhanush0369/gitops-repo.git
-        cd gitops-repo/apps/fastapi-mistralai-app
+        cd gitops-repo/k8s
         sed -i "s|image: .*|image: dhanush789245/fastapi-mistralai-app:${{ env.IMAGE_TAG }}|g" deployment.yaml
 
         git add deployment.yaml
